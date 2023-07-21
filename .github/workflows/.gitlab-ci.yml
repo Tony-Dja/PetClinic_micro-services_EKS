@@ -1,0 +1,81 @@
+# Création CI PetClinic => Build and push to ECR
+
+name: Petclinic CI with Github Actions
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '17' ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo build dokcer images!
+  build-config-server:
+    uses:  ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-config-server
+      tag:  3.0.2
+      port: 8888
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  build-discovery-server:
+    uses:  ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-discovery-server
+      tag:  3.0.2
+      port: 8761
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  build-api-gateway:
+    uses:  ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-api-gateway
+      tag:  3.0.2
+      port: 8080
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  build-admin-server:
+    uses: ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-admin-server
+      tag:  3.0.2
+      port: 9090
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  build-customers-service:
+    uses:  ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-customers-service
+      tag:  3.0.2
+      port: 8081
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  build-vets-service:
+    uses: ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-vets-service
+      tag:  3.0.2
+      port: 8083
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  build-visits-server:
+    uses: ${{ secrets.WORKFLOW_FOLDER }}/.github/workflows/build-docker-image.yml@main
+    with:
+      image_name: spring-petclinic-visits-service
+      tag:  3.0.2
+      port: 8082
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
