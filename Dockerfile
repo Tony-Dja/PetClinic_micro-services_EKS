@@ -26,9 +26,5 @@ ENV SPRING_PROFILES_ACTIVE docker
 COPY --from=builder application/dependencies/ ./
 COPY --from=builder application/spring-boot-loader/ ./
 COPY --from=builder application/snapshot-dependencies/ ./
-RUN ls -la
-RUN pwd
-RUN cd ..
-RUN ls -la
 COPY --from=builder application/ ./
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
