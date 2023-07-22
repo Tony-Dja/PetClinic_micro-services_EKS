@@ -52,7 +52,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.ECR_REGION }}
+        aws-region: eu-west-3
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
@@ -61,11 +61,9 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR - config server
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ env.ECR_NAME }}
+        ECR_REPOSITORY: ecr-petclinic
         IMAGE_TAG: ${{inputs.image_name}}
       run: |
-        ls -l
-        pwd
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg ARTIFACT_NAME=${{inputs.image_name}}/target/${{inputs.image_name}}-${{inputs.tag}} --build-arg EXPOSED_PORT=${{inputs.port}} --build-arg DOCKERIZE_VERSION=v0.7.0 .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "Image $IMAGE_TAG. pushed on ECR"
