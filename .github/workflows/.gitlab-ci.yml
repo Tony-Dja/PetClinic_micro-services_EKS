@@ -26,7 +26,7 @@ jobs:
   
   # config-server
   build-config-server:
-    uses:  ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses:  ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-config-server
       tag:  3.0.2
@@ -36,7 +36,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # discovery-server
   build-discovery-server:
-    uses:  ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses:  ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-discovery-server
       tag:  3.0.2
@@ -46,7 +46,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # api-gateway => FRONT-END
   build-api-gateway:
-    uses:  ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses:  ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-api-gateway
       tag:  3.0.2
@@ -56,7 +56,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # admin-server
   build-admin-server:
-    uses: ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses: ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-admin-server
       tag:  3.0.2
@@ -66,7 +66,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # customer-service
   build-customers-service:
-    uses:  ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses:  ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-customers-service
       tag:  3.0.2
@@ -76,7 +76,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # vets-service
   build-vets-service:
-    uses: ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses: ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-vets-service
       tag:  3.0.2
@@ -86,7 +86,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   # visits-server
   build-visits-server:
-    uses: ${{ vars.WORKFLOW_FOLDER }}/build-docker-image.yml@master
+    uses: ${{ env.WORKFLOW_FOLDER }}/build-docker-image.yml@master
     with:
       image_name: spring-petclinic-visits-service
       tag:  3.0.2
