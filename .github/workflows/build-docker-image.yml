@@ -60,7 +60,7 @@ jobs:
     # Build des images avec Docker et Push vers ECR  
     - name: Build, tag, and push image to Amazon ECR - config server
       env:
-        ECR_REGISTRY: public.ecr.aws/w4d4s8q0/ecr-petclinic
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ecr-petclinic
         IMAGE_TAG: ${{inputs.image_name}}
       run: |
