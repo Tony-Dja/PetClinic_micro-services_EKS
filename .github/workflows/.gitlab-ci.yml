@@ -1,11 +1,15 @@
-# Création CI PetClinic => Build et push sur ECR 
+# Création CI PetClinic => Build et push sur ECR
 
-name: Petclinic CI with Github Actions
+name: Petclinic CI => Github Actions
+# mise en place du Trigger
 on:
   # Push ou Pull Request sur @master
-    branches: [ master ]
+  push:
+    branches: [ master ] 
   pull_request:
     branches: [ master ]
+
+# lancement des Jobs
 jobs:
   build:
     # Configuration de l'environnement

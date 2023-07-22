@@ -1,6 +1,6 @@
 # PetClinic => Build de toutes les images Docker
 
-name: PetClinic Create and Publish Docker Image
+name: Build and Push Docker Images
 on:
   # Workflow réutilisable et pouvant être "include" dans gitlab-ci.yml
   workflow_call:
