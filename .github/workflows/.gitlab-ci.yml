@@ -96,6 +96,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   deploy-to-eks:
+    name: "Build and Push to EKS"
+    runs-on: ubuntu-latest
+    
     steps:
     - name: Update kube config
       run: |
