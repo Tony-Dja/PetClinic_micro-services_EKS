@@ -120,4 +120,4 @@ jobs:
     # Deploy the YAML files from the kubernetes folder
     - name: Deploy Kubernetes resources
       run: | #kubectl apply --recursive -f https://github.com/Tony-Dja/PetClinic_micro-services_EKS/tree/camille/k8s/
-        kubectl apply -f tree/camille/k8s/api-gateway.deployment.yaml 
+        kubectl apply -f https://github.com/Tony-Dja/PetClinic_micro-services_EKS/tree/camille/k8s/api-gateway-deployment.yaml 
