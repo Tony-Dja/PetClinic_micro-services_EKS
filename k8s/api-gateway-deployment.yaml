@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,15 +10,15 @@ spec:
   selector:
     matchLabels:
       app: api-gateway
-  strategy: {}
+  #strategy: {}
   template:
     metadata:
       labels:
         app: api-gateway
     spec:
       containers:
-      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-cloud-api-gateway
-        name: api-gateway
+      - name: api-gateway
+        image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-cloud-api-gateway       
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -44,9 +43,9 @@ spec:
             memory: 1Gi
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: kubernetes
+          value: "kubernetes"
         - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
-          value: proxy://wavefront-proxy.spring-petclinic.svc.cluster.local:2878
+          value: "proxy://wavefront-proxy.spring-petclinic.svc.cluster.local:2878"
         ports:
         - containerPort: 8080
       restartPolicy: Always
