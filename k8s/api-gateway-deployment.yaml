@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: api-gateway
+  #labels:
+  #  app: api-gateway
   name: api-gateway
   namespace: spring-petclinic
 spec:
@@ -19,28 +19,28 @@ spec:
       containers:
       - name: api-gateway
         image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-cloud-api-gateway       
-        imagePullPolicy: Always
-        livenessProbe:
-          httpGet:
-            port: 8080
-            path: /actuator/health/liveness
-          initialDelaySeconds: 90
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            port: 8080
-            path: /actuator/health/readiness
-          initialDelaySeconds: 15
-        lifecycle:
-          preStop:
-            exec:
-              command: ["sh", "-c", "sleep 10"]
-        resources:
-          limits:
-            memory: 1Gi
-          requests:
-            cpu: 2000m
-            memory: 1Gi
+        # imagePullPolicy: Always
+        # livenessProbe:
+        #   httpGet:
+        #     port: 8080
+        #     path: /actuator/health/liveness
+        #   initialDelaySeconds: 90
+        #   periodSeconds: 5
+        # readinessProbe:
+        #   httpGet:
+        #     port: 8080
+        #     path: /actuator/health/readiness
+        #   initialDelaySeconds: 15
+        # lifecycle:
+        #   preStop:
+        #     exec:
+        #       command: ["sh", "-c", "sleep 10"]
+        # resources:
+        #   limits:
+        #     memory: 1Gi
+        #   requests:
+        #     cpu: 2000m
+        #     memory: 1Gi
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "kubernetes"
@@ -48,5 +48,5 @@ spec:
           value: "proxy://wavefront-proxy.spring-petclinic.svc.cluster.local:2878"
         ports:
         - containerPort: 8080
-      restartPolicy: Always
-status: {}
+      #restartPolicy: Always
+#status: {}
