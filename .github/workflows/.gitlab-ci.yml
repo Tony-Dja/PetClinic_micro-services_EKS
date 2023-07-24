@@ -94,3 +94,13 @@ jobs:
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  deploy-to-eks:
+    steps:
+    - name: Update kube config
+      run: |
+        aws eks update-kubeconfig --name eks-petclinic
+
+    # Deploy the YAML files from the kubernetes folder
+    - name: Deploy Kubernetes resources
+      run: kubectl apply --recursive -f k8s
