@@ -67,3 +67,11 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg ARTIFACT_NAME=${{inputs.image_name}}/target/${{inputs.image_name}}-${{inputs.tag}} --build-arg EXPOSED_PORT=${{inputs.port}} --build-arg DOCKERIZE_VERSION=v0.7.0 .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "Image $IMAGE_TAG. pushed on ECR"
+
+    - name: Update kube config
+      run: |
+        aws eks update-kubeconfig --name eks-petclinic
+
+    # Deploy the YAML files from the kubernetes folder
+    - name: Deploy Kubernetes resources
+      run: kubectl apply --recursive -f k8s
