@@ -121,5 +121,19 @@ jobs:
     - name: Deploy Kubernetes resources
       run: | 
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-namespace/01-namespace.yaml
+        
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/api-gateway-deployment.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/customers-service-deployment.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/vets-service-deployment.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/visits-service-deployment.yaml
 
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/02-config-map.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/03-role.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/04-wavefront.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/05-api-gateway-service.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/06-customers-service-service.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/07-vets-service-service.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/08-visits-service-service.yaml
+        
+        
       #kubectl apply --recursive -f https://github.com/Tony-Dja/PetClinic_micro-services_EKS/tree/camille/k8s/
