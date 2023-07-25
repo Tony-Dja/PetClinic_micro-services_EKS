@@ -19,7 +19,7 @@ spec:
         app: customers-service
     spec:
       containers:
-      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-cloud-customers-service
+      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-customers-service
         name: customers-service
         imagePullPolicy: Always
         livenessProbe:

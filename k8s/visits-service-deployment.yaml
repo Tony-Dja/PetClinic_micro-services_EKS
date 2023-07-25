@@ -18,7 +18,7 @@ spec:
         app: visits-service
     spec:
       containers:
-      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-cloud-visits-service
+      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-visits-service
         name: visits-service
         imagePullPolicy: Always
         livenessProbe:
