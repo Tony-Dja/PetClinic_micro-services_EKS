@@ -115,9 +115,3 @@ data:
       cache:
         ttl: 60
         heap-size: 101
-
-  mapUsers: |
-    - userarn: arn:aws:iam::885801475464:user/camille
-      username: camille
-      groups:
-        - system:masters

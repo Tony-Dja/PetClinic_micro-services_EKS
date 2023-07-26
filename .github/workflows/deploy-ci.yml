@@ -128,6 +128,7 @@ jobs:
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/visits-service-deployment.yaml
 
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/02-config-map.yaml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/02-system-config-map.yaml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/03-role.yaml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/04-wavefront.yaml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-services/05-api-gateway-service.yaml
