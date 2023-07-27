@@ -115,11 +115,18 @@ jobs:
 
     - name: Update kube config
       run: |
-        aws eks update-kubeconfig --name eks-petclinic
+        aws eks update-kubeconfig --name test-cluster-petclinic
 
     # Deploy the YAML files from the kubernetes folder
     - name: Deploy Kubernetes resources
       run: | 
-        kubectl apply -f https://github.com/Tony-Dja/PetClinic_micro-services_EKS/blob/master/test.yaml
-
-      #kubectl apply --recursive -f https://github.com/Tony-Dja/PetClinic_micro-services_EKS/tree/camille/k8s/
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/init/namespace.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/init/auth.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/deployment/api-gateway-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/deployment/customers-service-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/deployment/vets-service-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/deployment/visits-service-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/services/api-gateway-service.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/services/customers-service.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/services/vets-service.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/services/visits-service.yml
