@@ -5,9 +5,9 @@ name: Petclinic > CI/CD > Github Actions
 on:
   # Push ou Pull Request sur @master
   push:
-    branches: [ master ] 
-  pull_request:
-    branches: [ master ]
+    branches: [ anthony ] 
+  #pull_request:
+   # branches: [ master ]
 
 # lancement des Jobs
 jobs:
