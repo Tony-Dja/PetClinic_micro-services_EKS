@@ -117,7 +117,8 @@ jobs:
       run: |
         aws eks update-kubeconfig --name test-cluster-petclinic
 
-    # Deploy the YAML files from the kubernetes folder
+
+    # Deploy the YAML files from the kubernetes folder 
     - name: Deploy Kubernetes resources
       run: | 
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/kubernetes/init/namespace.yml
