@@ -52,7 +52,7 @@ spec:
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom:
              secretKeyRef:
-               name: vets-db-mysql
+               name: db-mysql #vets-db-mysql
                key: mysql-root-password
         - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
           value: proxy://wavefront-proxy.spring-petclinic.svc.cluster.local:2878
