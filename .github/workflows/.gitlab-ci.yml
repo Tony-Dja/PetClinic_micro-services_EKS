@@ -122,11 +122,12 @@ jobs:
       run: | 
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/init/namespace.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/init/auth.yml
-        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/api-gateway-deploy.yml
-        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/customers-service-deploy.yml
-        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/vets-service-deploy.yml
-        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/visits-service-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/db.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/api-gateway-service.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/customers-service.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/vets-service.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/visits-service.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/api-gateway-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/customers-service-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/vets-service-deploy.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/visits-service-deploy.yml
