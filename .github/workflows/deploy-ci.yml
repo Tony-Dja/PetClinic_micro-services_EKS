@@ -123,8 +123,8 @@ jobs:
 
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/init-namespace/01-namespace.yaml
         
-        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/secret.yml
-        
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/secret.yaml
+
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/api-gateway-deployment.yaml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/customers-service-deployment.yaml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/camille/k8s/vets-service-deployment.yaml
