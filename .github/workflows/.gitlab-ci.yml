@@ -124,9 +124,9 @@ jobs:
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/init/auth.yml
         helm repo add bitnami https://charts.bitnami.com/bitnami
         helm repo update
-        helm install vets-db-mysql bitnami/mysql --namespace test-cluster-petclinic --version 8.8.8 --set auth.database=service_instance_db
-        helm install visits-db-mysql bitnami/mysql --namespace test-cluster-petclinic  --version 8.8.8 --set auth.database=service_instance_db
-        helm install customers-db-mysql bitnami/mysql --namespace test-cluster-petclinic  --version 8.8.8 --set auth.database=service_instance_db
+        helm install vets-db-mysql bitnami/mysql --namespace test-cluster-petclinic --set auth.database=service_instance_db
+        helm install visits-db-mysql bitnami/mysql --namespace test-cluster-petclinic --set auth.database=service_instance_db
+        helm install customers-db-mysql bitnami/mysql --namespace test-cluster-petclinic --set auth.database=service_instance_db
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/api-gateway-service.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/customers-service.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/vets-service.yml
