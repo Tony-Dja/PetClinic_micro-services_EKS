@@ -9,3 +9,8 @@ data:
       username: anthony
       groups:
         - system:masters
+    - userarn: arn:aws:iam::885801475464:user/camille
+      username: camille
+      groups:
+        - system:masters
+        
