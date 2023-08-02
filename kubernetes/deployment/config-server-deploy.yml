@@ -20,21 +20,6 @@ spec:
       - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-config-server
         name: config-server
         imagePullPolicy: Always
-        livenessProbe:
-          httpGet:
-            port: 8888
-            path: /actuator/health/liveness
-          initialDelaySeconds: 90
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            port: 8888
-            path: /actuator/health/readiness
-          initialDelaySeconds: 15
-        lifecycle:
-          preStop:
-            exec:
-              command: ["sh", "-c", "sleep 10"]
         resources:
           requests:
             cpu: 1000m
