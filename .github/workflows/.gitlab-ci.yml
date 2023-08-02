@@ -122,5 +122,7 @@ jobs:
       run: | 
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/init/namespace.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/init/auth.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/config-server-service.yml
+        kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/config-server-deploy.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/services/api-gateway-service.yml
         kubectl apply -f https://raw.githubusercontent.com/Tony-Dja/PetClinic_micro-services_EKS/anthony/kubernetes/deployment/api-gateway-deploy.yml

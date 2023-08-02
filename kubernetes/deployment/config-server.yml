@@ -2,33 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: api-gateway
-  name: api-gateway
+    app: config-server
+  name: config-server
   namespace: test-cluster-petclinic
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api-gateway
+      app: config-server
   strategy: {}
   template:
     metadata:
       labels:
-        app: api-gateway
+        app: config-server
     spec:
       containers:
-      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-api-gateway
-        name: api-gateway
+      - image: 885801475464.dkr.ecr.eu-west-3.amazonaws.com/ecr-petclinic:spring-petclinic-config-server
+        name: config-server
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
-            port: 8080
+            port: 8888
             path: /actuator/health/liveness
           initialDelaySeconds: 90
           periodSeconds: 5
         readinessProbe:
           httpGet:
-            port: 8080
+            port: 8888
             path: /actuator/health/readiness
           initialDelaySeconds: 15
         lifecycle:
@@ -47,6 +47,6 @@ spec:
       #  - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
       #    value: proxy://wavefront-proxy.spring-petclinic.svc.cluster.local:2878
         ports:
-        - containerPort: 8080
+        - containerPort: 8888
       restartPolicy: Always
 status: {}
